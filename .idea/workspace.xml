@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e561abb0-5dfb-4c1a-a0e6-79cd0e34af51" name="Changes" comment="Inicio" />
+    <list default="true" id="e561abb0-5dfb-4c1a-a0e6-79cd0e34af51" name="Changes" comment="Inicio">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Julian" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674082533203</updated>
-      <workItem from="1674082534321" duration="2396000" />
+      <workItem from="1674082534321" duration="2636000" />
     </task>
     <task id="LOCAL-00001" summary="Inicio">
       <created>1674084030227</created>
@@ -74,7 +76,28 @@
       <option name="project" value="LOCAL" />
       <updated>1674084030227</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Inicio">
+      <created>1674085155082</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674085155082</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Inicio">
+      <created>1674085175620</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674085175620</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Inicio">
+      <created>1674085191307</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674085191307</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
