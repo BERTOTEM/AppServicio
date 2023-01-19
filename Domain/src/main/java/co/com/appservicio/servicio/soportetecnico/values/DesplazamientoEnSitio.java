@@ -13,6 +13,6 @@ public class DesplazamientoEnSitio implements ValueObject<Boolean> {
 
     @Override
     public Boolean value() {
-        return null;
+        return value;
     }
 }
