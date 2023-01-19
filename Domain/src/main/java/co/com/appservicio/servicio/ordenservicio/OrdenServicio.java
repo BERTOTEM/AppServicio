@@ -8,6 +8,7 @@ import co.com.appservicio.servicio.ordenservicio.events.OrdenServicioCreada;
 import co.com.appservicio.servicio.ordenservicio.events.RepuestoAgregado;
 import co.com.appservicio.servicio.ordenservicio.values.*;
 import co.com.appservicio.servicio.ordenservicio.entities.Repuesto;
+import co.com.appservicio.servicio.soportetecnico.values.SoporteTecnicoId;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
@@ -18,7 +19,7 @@ import java.util.Set;
 
 public class OrdenServicio extends AggregateEvent<OrdenSevicioID> {
     protected OrdenSevicioID ordenSevicioID;
-    protected Integer soporteTecnicoID;
+    protected SoporteTecnicoId soporteTecnicoID;
     protected ClienteId clienteId;
     protected Estado estado;
     protected Set<Repuesto> repuestos;
@@ -63,7 +64,7 @@ public class OrdenServicio extends AggregateEvent<OrdenSevicioID> {
         appendChange(new RepuestoAgregado(repuestoID, requiereRepuesto)).apply();
     }
 
-    public Integer getSoporteTecnicoID() {
+    public SoporteTecnicoId getSoporteTecnicoID() {
         return soporteTecnicoID;
     }
 
