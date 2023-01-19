@@ -8,12 +8,15 @@ import co.com.appservicio.servicio.cliente.events.ContactoAgregado;
 import co.com.appservicio.servicio.cliente.events.EncuestaAgregada;
 import co.com.appservicio.servicio.cliente.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
 public class Cliente extends AggregateEvent<ClienteId> {
+    protected ClienteId clienteId;
     protected InformacionCliente informacioncliente;
     protected Encuesta encuestas;
     protected Set<Contacto> contactos;
@@ -21,6 +24,17 @@ public class Cliente extends AggregateEvent<ClienteId> {
     public Cliente(ClienteId clienteId, InformacionCliente informacioncliente) {
         super(clienteId);
         appendChange(new ClienteCreado(informacioncliente)).apply();
+    }
+
+    private Cliente(ClienteId clienteId){
+        super(clienteId);
+        subscribe(new ClienteChange(this));
+    }
+
+    public static Cliente from(ClienteId clienteId, List<DomainEvent> events){
+        var cliente= new Cliente(clienteId);
+        events.forEach(cliente::applyEvent);
+        return cliente;
     }
 
     public void AgregarEncuesta(EncuestaId encuestaId, Observaciones observaciones, Calificacion calificacion) {
