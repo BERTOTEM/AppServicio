@@ -1,7 +1,7 @@
 package co.com.appservicio.servicio.cliente;
 
 import co.com.appservicio.servicio.cliente.entities.Contacto;
-import co.com.appservicio.servicio.cliente.entities.Encuenta;
+import co.com.appservicio.servicio.cliente.entities.Encuesta;
 import co.com.appservicio.servicio.cliente.events.ClienteCreado;
 import co.com.appservicio.servicio.cliente.values.ClienteId;
 import co.com.appservicio.servicio.cliente.values.InformacionCliente;
@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class Cliente  extends AggregateEvent<ClienteId> {
     protected InformacionCliente informacioncliente;
-    protected Encuenta encuesta;
+    protected Encuesta encuesta;
     protected Set<Contacto> contacto;
     public Cliente(ClienteId clienteId,InformacionCliente informacioncliente) {
         super(clienteId);
@@ -26,7 +26,7 @@ public class Cliente  extends AggregateEvent<ClienteId> {
         return informacioncliente;
     }
 
-    public Encuenta getEncuesta() {
+    public Encuesta getEncuesta() {
         return encuesta;
     }
 }
