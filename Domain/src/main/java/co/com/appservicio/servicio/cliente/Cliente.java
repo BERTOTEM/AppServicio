@@ -1,17 +1,18 @@
 package co.com.appservicio.servicio.cliente;
 
 import co.com.appservicio.servicio.cliente.entities.Contacto;
+import co.com.appservicio.servicio.cliente.entities.Encuenta;
 import co.com.appservicio.servicio.cliente.events.ClienteCreado;
 import co.com.appservicio.servicio.cliente.values.ClienteId;
 import co.com.appservicio.servicio.cliente.values.InformacionCliente;
-import co.com.sofka.domain.generic.AggregateRoot;
-import co.com.appservicio.servicio.cliente.events.ClienteCreado;
+import co.com.sofka.domain.generic.AggregateEvent;
 
 import java.util.Set;
 
 
-public class Cliente  extends AggregateRoot <ClienteId>{
+public class Cliente  extends AggregateEvent<ClienteId> {
     protected InformacionCliente informacioncliente;
+    protected Encuenta encuesta;
     protected Set<Contacto> contacto;
     public Cliente(ClienteId clienteId,InformacionCliente informacioncliente) {
         super(clienteId);
@@ -25,5 +26,7 @@ public class Cliente  extends AggregateRoot <ClienteId>{
         return informacioncliente;
     }
 
-
+    public Encuenta getEncuesta() {
+        return encuesta;
+    }
 }
