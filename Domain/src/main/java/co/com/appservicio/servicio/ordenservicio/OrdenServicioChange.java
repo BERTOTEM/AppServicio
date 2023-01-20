@@ -9,10 +9,14 @@ import co.com.appservicio.servicio.ordenservicio.events.RepuestoAgregado;
 import co.com.appservicio.servicio.ordenservicio.values.RepuestoID;
 import co.com.sofka.domain.generic.EventChange;
 
+import java.util.HashSet;
+
 public class OrdenServicioChange extends EventChange {
     public OrdenServicioChange(OrdenServicio ordenServicio) {
         apply((OrdenServicioCreada event) -> {
             ordenServicio.objetivo = event.getObjetivo();
+            ordenServicio.repuestos= new HashSet<>();
+
         });
         apply((EstadoAgregado event) -> {
             ordenServicio.estado = new Estado(event.getEstadoID(), event.getFecha(), event.getPendiente());

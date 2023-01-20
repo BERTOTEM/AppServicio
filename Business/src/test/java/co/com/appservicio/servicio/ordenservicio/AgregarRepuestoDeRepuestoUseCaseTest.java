@@ -3,7 +3,6 @@ package co.com.appservicio.servicio.ordenservicio;
 import co.com.appservicio.servicio.ordenservicio.commands.AgregarRepuestoDeRepuesto;
 import co.com.appservicio.servicio.ordenservicio.events.OrdenServicioCreada;
 import co.com.appservicio.servicio.ordenservicio.events.RepuestoAgregado;
-import co.com.appservicio.servicio.ordenservicio.values.Descripcion;
 import co.com.appservicio.servicio.ordenservicio.values.Objetivo;
 import co.com.appservicio.servicio.ordenservicio.values.OrdenSevicioID;
 import co.com.appservicio.servicio.ordenservicio.values.RequiereRepuesto;
@@ -20,7 +19,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -33,7 +31,7 @@ class AgregarRepuestoDeRepuestoUseCaseTest {
     void AgregarRepuestoDeRepuestoHappyPass(){
         // ARRANGE
         OrdenSevicioID ordenSevicioID = OrdenSevicioID.of("xxx");
-        RequiereRepuesto requiereRepuesto = new RequiereRepuesto(false, new Descripcion("", ""));
+        RequiereRepuesto requiereRepuesto = new RequiereRepuesto(false  ,"tornillo lkj","56");
 
         var command = new AgregarRepuestoDeRepuesto(ordenSevicioID, requiereRepuesto);
 
@@ -49,12 +47,8 @@ class AgregarRepuestoDeRepuestoUseCaseTest {
 
         // ASSERT
         var event = (RepuestoAgregado)events.get(0);
-        Assertions.assertEquals(false, event.getRequiereRepuesto().getValue().booleanValue());
-
-
-
-
-
+        Assertions.assertEquals("", event.getRequiereRepuesto().value().descripcion());
+        Assertions.assertEquals("", event.getRequiereRepuesto().value().cantidad());
 
 
 
