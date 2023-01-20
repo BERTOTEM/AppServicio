@@ -35,10 +35,10 @@ class ActualizarClienteUseCaseTest {
 
     @Test
     public void actualizarCLienteHappyPass(){
-        var event = new ActualizarCliente(ClienteId.of("usuario-001"),
+        var event = new ActualizarCliente(ClienteId.of("ddd"),
                  InformacionCliente.of("Sofka", "3003413827"));
 
-        when(repository.getEventsBy("usuario-001")).thenReturn(clientes());
+        when(repository.getEventsBy("ddd")).thenReturn(clientes());
         useCase.addRepository(repository);
 
         // Act
@@ -50,14 +50,15 @@ class ActualizarClienteUseCaseTest {
 
         // ASSERT
         var clienteactualizado =  (ClienteActualizado)events.get(0);
-        Assertions.assertEquals(InformacionCliente.of("Sofka","3003413827"), clienteactualizado.getInformacionCliente().value());
+        Assertions.assertEquals("Sofka",clienteactualizado.getInformacionCliente().value().nombre());
+        Assertions.assertEquals("3003413827",clienteactualizado.getInformacionCliente().value().telefono());
 
 
     }
 
     private List<DomainEvent> clientes(){
-        var event = new ClienteCreado(InformacionCliente.of("julian","30313827"));
-        event.setAggregateRootId("usuario-001");
+        var event = new ClienteCreado(InformacionCliente.of("julian","5555"));
+        event.setAggregateRootId("ddd");
         return  List.of(event);
     }
 

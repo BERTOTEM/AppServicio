@@ -8,6 +8,7 @@ import co.com.appservicio.servicio.cliente.events.ContactoAgregado;
 import co.com.appservicio.servicio.cliente.events.EncuestaAgregada;
 import co.com.appservicio.servicio.cliente.values.Calificacion;
 import co.com.appservicio.servicio.cliente.values.EncuestaId;
+import co.com.appservicio.servicio.cliente.values.InformacionCliente;
 import co.com.appservicio.servicio.cliente.values.Observaciones;
 import co.com.sofka.domain.generic.EventChange;
 
@@ -30,7 +31,7 @@ public class ClienteChange  extends EventChange {
             cliente.encuestas = new Encuesta(event.getEncuestaId(), event.getObservaciones(),event.getCalificacion());
         });
         apply((ClienteActualizado event)->{
-            cliente.ActualizarCliente(event.getClienteId(),event.getInformacionCliente());
+            cliente.informacioncliente = cliente.getInformacioncliente();
         });
 
     }
