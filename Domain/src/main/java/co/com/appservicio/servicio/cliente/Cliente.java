@@ -16,7 +16,9 @@ import java.util.Optional;
 import java.util.Set;
 
 public class Cliente extends AggregateEvent<ClienteId> {
+
     protected ClienteId clienteId;
+
     protected InformacionCliente informacioncliente;
     protected Encuesta encuestas;
     protected Set<Contacto> contactos;

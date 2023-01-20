@@ -1,11 +1,9 @@
 package co.com.appservicio.servicio.cliente;
 
 import co.com.appservicio.servicio.cliente.commands.AgregarContacto;
-import co.com.appservicio.servicio.cliente.commands.CrearCliente;
 import co.com.appservicio.servicio.cliente.events.ClienteCreado;
 import co.com.appservicio.servicio.cliente.events.ContactoAgregado;
 import co.com.appservicio.servicio.cliente.values.ClienteId;
-import co.com.appservicio.servicio.cliente.values.ContactoId;
 import co.com.appservicio.servicio.cliente.values.InformacionCliente;
 import co.com.appservicio.servicio.cliente.values.InformacionContacto;
 import co.com.sofka.business.generic.UseCaseHandler;
@@ -21,7 +19,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

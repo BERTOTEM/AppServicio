@@ -15,4 +15,8 @@ public class DesplazamientoEnSitio implements ValueObject<Boolean> {
     public Boolean value() {
         return value;
     }
+
+    public Boolean getValue() {
+        return value;
+    }
 }

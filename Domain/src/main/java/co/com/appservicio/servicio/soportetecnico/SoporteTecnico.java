@@ -2,6 +2,8 @@ package co.com.appservicio.servicio.soportetecnico;
 
 import co.com.appservicio.servicio.cliente.ClienteChange;
 import co.com.appservicio.servicio.cliente.values.ClienteId;
+import co.com.appservicio.servicio.cliente.values.ContactoId;
+import co.com.appservicio.servicio.cliente.values.EncuestaId;
 import co.com.appservicio.servicio.soportetecnico.events.SedeAgregada;
 import co.com.appservicio.servicio.soportetecnico.events.SoporteTecnicoActualizado;
 import co.com.appservicio.servicio.soportetecnico.events.SoporteTecnicoCreado;
@@ -18,7 +20,7 @@ import java.util.Optional;
 import java.util.Set;
 
 public class SoporteTecnico extends AggregateEvent<SoporteTecnicoId> {
-
+    protected SoporteTecnicoId soporteTecnicoId;
     protected HerramientaEspecializada herramientaEspecializada;
     protected Sede sede;
     protected Set<Tecnico> tecnicos;
@@ -40,13 +42,15 @@ public class SoporteTecnico extends AggregateEvent<SoporteTecnicoId> {
 
 
 
-    public void AgregarTecnico(TecnicoId tecnicoId, InformacionTecnico informacionTecnico, DesplazamientoEnSitio desplazamientoEnSitio) {
+    public void AgregarTecnico( InformacionTecnico informacionTecnico, DesplazamientoEnSitio desplazamientoEnSitio) {
+        var tecnicoId = new TecnicoId();
         Objects.requireNonNull(tecnicoId);
         Objects.requireNonNull(informacionTecnico);
         Objects.requireNonNull(desplazamientoEnSitio);
         appendChange(new TecnicoAgregado(tecnicoId, informacionTecnico, desplazamientoEnSitio)).apply();
     }
-    public void AgregarSede(SedeId sedeId, InformacionSede informacionSede) {
+    public void AgregarSede(InformacionSede informacionSede) {
+        var sedeId = new SedeId();
         Objects.requireNonNull(sedeId);
         Objects.requireNonNull(informacionSede);
         appendChange(new SedeAgregada(sedeId, informacionSede)).apply();
@@ -69,5 +73,9 @@ public class SoporteTecnico extends AggregateEvent<SoporteTecnicoId> {
                 .stream()
                 .filter(tecnico -> tecnico.identity().equals(tecnicoId))
                 .findFirst();
+    }
+
+    public SoporteTecnicoId getSoporteTecnicoId() {
+        return soporteTecnicoId;
     }
 }
