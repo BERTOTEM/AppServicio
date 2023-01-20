@@ -14,6 +14,6 @@ public class Pendiente implements ValueObject<Boolean> {
 
     @Override
     public Boolean value() {
-        return null;
+        return value;
     }
 }

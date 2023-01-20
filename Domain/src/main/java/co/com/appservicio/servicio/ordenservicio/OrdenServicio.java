@@ -20,6 +20,7 @@ import java.util.Set;
 public class OrdenServicio extends AggregateEvent<OrdenSevicioID> {
     protected OrdenSevicioID ordenSevicioID;
     protected SoporteTecnicoId soporteTecnicoID;
+
     protected ClienteId clienteId;
     protected Estado estado;
     protected Set<Repuesto> repuestos;
@@ -50,8 +51,8 @@ public class OrdenServicio extends AggregateEvent<OrdenSevicioID> {
     }
 
     // AGREGAR ESTADO
-    public void AgregarEstadoDeEstado(EstadoID estadoID, Fecha fecha, Pendiente pendiente){
-        Objects.requireNonNull(estadoID);
+    public void AgregarEstadoDeEstado(Fecha fecha, Pendiente pendiente){
+        var estadoID = new EstadoID();
         Objects.requireNonNull(fecha);
         Objects.requireNonNull(pendiente);
         appendChange(new EstadoAgregado(estadoID, fecha, pendiente)).apply();
