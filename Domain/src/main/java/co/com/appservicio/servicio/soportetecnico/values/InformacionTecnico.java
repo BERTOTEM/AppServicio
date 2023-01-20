@@ -21,7 +21,7 @@ public class InformacionTecnico implements ValueObject<InformacionTecnico.InfoT>
 
 
     @Override
-    public InfoT value() {
+    public InformacionTecnico.InfoT value() {
         return new InfoT() {
             @Override
             public String nombre() {

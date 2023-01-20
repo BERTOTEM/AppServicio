@@ -19,7 +19,7 @@ public class Observaciones implements ValueObject<Observaciones.Info> {
         return new Observaciones(observacion, fecha);
     }
 
-    public Info value() {
+    public Observaciones.Info value() {
 
         return new Info() {
 
