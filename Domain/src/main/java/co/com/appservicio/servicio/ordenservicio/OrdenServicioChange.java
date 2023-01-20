@@ -18,7 +18,7 @@ public class OrdenServicioChange extends EventChange {
             ordenServicio.estado = new Estado(event.getEstadoID(), event.getFecha(), event.getPendiente());
         });
         apply((OrdenActualizada event) -> {
-            ordenServicio.ActualizarOrdenDeServicio(event.getOrdenSevicioID(), event.getObjetivo());
+            ordenServicio.objetivo = event.getObjetivo();
         });
         apply((RepuestoAgregado event) -> {
             ordenServicio.repuestos.add(new Repuesto(event.getRepuestoID(), event.getRequiereRepuesto()));
