@@ -14,10 +14,14 @@ public  class RequiereRepuesto implements ValueObject<Descripcion> {
     }
 
     public Descripcion value() {
-        if (!value.booleanValue()){
-            descripcion.value().descripcion("No usa");
-            descripcion.value().cantidad("0");
-        }
+//        if (!value.booleanValue()){
+//            descripcion.value().descripcion("No usa");
+//            descripcion.value().cantidad("0");
+//        }
         return descripcion;
+    }
+
+    public Boolean getValue() {
+        return value;
     }
 }

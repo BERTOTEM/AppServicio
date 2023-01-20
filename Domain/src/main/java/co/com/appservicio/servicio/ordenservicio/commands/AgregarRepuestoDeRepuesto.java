@@ -1,20 +1,21 @@
 package co.com.appservicio.servicio.ordenservicio.commands;
 
+import co.com.appservicio.servicio.ordenservicio.values.OrdenSevicioID;
 import co.com.appservicio.servicio.ordenservicio.values.RepuestoID;
 import co.com.appservicio.servicio.ordenservicio.values.RequiereRepuesto;
 import co.com.sofka.domain.generic.Command;
 
 public class AgregarRepuestoDeRepuesto extends Command {
-    private final RepuestoID repuestoID;
+    private final OrdenSevicioID ordenSevicioID;
     private final RequiereRepuesto requiereRepuesto;
 
-    public AgregarRepuestoDeRepuesto(RepuestoID repuestoID, RequiereRepuesto requiereRepuesto){
-        this.repuestoID = repuestoID;
+    public AgregarRepuestoDeRepuesto(OrdenSevicioID ordenSevicioID, RequiereRepuesto requiereRepuesto){
+        this.ordenSevicioID = ordenSevicioID;
         this.requiereRepuesto = requiereRepuesto;
     }
 
-    public RepuestoID getRepuestoID() {
-        return repuestoID;
+    public OrdenSevicioID getOrdenSevicioID() {
+        return ordenSevicioID;
     }
 
     public RequiereRepuesto getRequiereRepuesto() {

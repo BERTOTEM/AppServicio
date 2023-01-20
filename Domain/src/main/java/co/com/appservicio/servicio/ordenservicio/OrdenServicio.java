@@ -59,7 +59,8 @@ public class OrdenServicio extends AggregateEvent<OrdenSevicioID> {
     }
 
     // AGREGAR REPUESTO
-    public void AgregarRepuestoDeRepuesto(RepuestoID repuestoID, RequiereRepuesto requiereRepuesto){
+    public void AgregarRepuestoDeRepuesto(RequiereRepuesto requiereRepuesto){
+        var repuestoID = new RepuestoID();
         Objects.requireNonNull(repuestoID);
         Objects.requireNonNull(requiereRepuesto);
         appendChange(new RepuestoAgregado(repuestoID, requiereRepuesto)).apply();
@@ -87,4 +88,6 @@ public class OrdenServicio extends AggregateEvent<OrdenSevicioID> {
                 .filter(repuesto -> repuesto.identity().equals(repuestoID))
                 .findFirst();
     }
+
+
 }
