@@ -8,10 +8,14 @@ import co.com.appservicio.servicio.soportetecnico.events.SoporteTecnicoCreado;
 import co.com.appservicio.servicio.soportetecnico.events.TecnicoAgregado;
 import co.com.sofka.domain.generic.EventChange;
 
+import java.util.HashSet;
+
 public class SoporteTecnicoChange extends EventChange {
     public SoporteTecnicoChange(SoporteTecnico soporteTecnico){
         apply((SoporteTecnicoCreado event)->{
             soporteTecnico.herramientaEspecializada=event.getHerramientaEspecializada();
+            soporteTecnico.tecnicos = new HashSet<>();
+            soporteTecnico.sede = soporteTecnico.getSede();
 
         });
         apply((SedeAgregada event)->{
@@ -23,7 +27,7 @@ public class SoporteTecnicoChange extends EventChange {
 
         });
         apply((SoporteTecnicoActualizado event)->{
-            soporteTecnico.ActualizarSoporteTecnico(event.getSoporteTecnicoId(), event.getHerramientaEspecializada());
+            soporteTecnico.herramientaEspecializada=soporteTecnico.getHerramientaEspecializada();
         });
 
     }

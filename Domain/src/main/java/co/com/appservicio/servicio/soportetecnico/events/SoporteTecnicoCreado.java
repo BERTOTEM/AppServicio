@@ -14,4 +14,5 @@ public class SoporteTecnicoCreado extends DomainEvent {
     public HerramientaEspecializada getHerramientaEspecializada() {
         return herramientaEspecializada;
     }
+
 }

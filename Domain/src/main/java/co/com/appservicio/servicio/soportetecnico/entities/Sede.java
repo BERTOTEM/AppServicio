@@ -12,4 +12,5 @@ public class Sede extends Entity<SedeId> {
         super(sedeId);
         this.informacionSede = informacionSede;
     }
+
 }

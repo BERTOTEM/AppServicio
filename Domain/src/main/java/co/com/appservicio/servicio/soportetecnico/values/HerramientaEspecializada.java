@@ -11,8 +11,14 @@ public class HerramientaEspecializada implements ValueObject<Boolean> {
         this.value = Objects.requireNonNull(value);
     }
 
+
+
     @Override
     public Boolean value() {
+        return value;
+    }
+
+    public Boolean getValue() {
         return value;
     }
 }
