@@ -12,10 +12,6 @@ public class AgregarContacto extends Command {
         this.informacionContacto = informacionContacto;
     }
 
-    public ContactoId getContactoId() {
-        return contactoId;
-    }
-
     public InformacionContacto getInformacionContacto() {
         return informacionContacto;
     }
