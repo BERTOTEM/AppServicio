@@ -2,10 +2,8 @@ package co.com.appservicio.servicio.ordenservicio;
 
 import co.com.appservicio.servicio.ordenservicio.commands.AgregarEstadoDeEstado;
 import co.com.appservicio.servicio.ordenservicio.events.EstadoAgregado;
-import co.com.appservicio.servicio.ordenservicio.values.EstadoID;
-import co.com.appservicio.servicio.ordenservicio.values.Fecha;
-import co.com.appservicio.servicio.ordenservicio.values.OrdenSevicioID;
-import co.com.appservicio.servicio.ordenservicio.values.Pendiente;
+import co.com.appservicio.servicio.ordenservicio.events.OrdenServicioCreada;
+import co.com.appservicio.servicio.ordenservicio.values.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -20,7 +18,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,8 +32,8 @@ class AgregarEstadoDeEstadoUseCaseTest {
     void AgregarEstadoDeEstadoHappyPass() {
         // ARRANGE
         OrdenSevicioID ordenSevicioID = OrdenSevicioID.of("xxx");
-        Fecha fecha = new Fecha();
-        Pendiente pendiente = new Pendiente(false);
+        Fecha fecha = Fecha.of(LocalDate.now());
+        Pendiente pendiente = new Pendiente(true);
 
         var command = new AgregarEstadoDeEstado(ordenSevicioID, fecha, pendiente);
 
@@ -52,17 +49,14 @@ class AgregarEstadoDeEstadoUseCaseTest {
 
         // ASSERT
         var event = (EstadoAgregado) events.get(0);
-        Assertions.assertEquals(false, event.getPendiente().value());
-
+        Assertions.assertEquals(true, event.getPendiente().value());
+        Assertions.assertEquals(fecha.value(), event.getFecha().value());
     }
 
     private List<DomainEvent> history() {
-//        EstadoID estadoID = new EstadoID();
-//        Fecha fecha = new Fecha();
-//        Pendiente pendiente = new Pendiente(false);
-        var event = new EstadoAgregado(new EstadoID(), new Fecha(), new Pendiente(false));
+        Objetivo objetivo = new Objetivo("Prueba");
+        var event = new OrdenServicioCreada(objetivo);
         event.setAggregateRootId("xxx");
         return List.of(event);
     }
-
 }
