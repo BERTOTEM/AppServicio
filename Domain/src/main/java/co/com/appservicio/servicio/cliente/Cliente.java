@@ -37,14 +37,16 @@ public class Cliente extends AggregateEvent<ClienteId> {
         return cliente;
     }
 
-    public void AgregarEncuesta(EncuestaId encuestaId, Observaciones observaciones, Calificacion calificacion) {
+    public void AgregarEncuesta(Observaciones observaciones, Calificacion calificacion) {
+        var encuestaId = new EncuestaId();
         Objects.requireNonNull(encuestaId);
         Objects.requireNonNull(observaciones);
         Objects.requireNonNull(calificacion);
         appendChange(new EncuestaAgregada(encuestaId, observaciones, calificacion)).apply();
     }
 
-    public void AgregarContacto(ContactoId contactoId, InformacionContacto informacioncontacto) {
+    public void AgregarContacto( InformacionContacto informacioncontacto) {
+        var contactoId = new ContactoId();
         Objects.requireNonNull(contactoId);
         Objects.requireNonNull(informacioncontacto);
         appendChange(new ContactoAgregado(contactoId, informacioncontacto)).apply();
@@ -71,4 +73,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
                 .findFirst();
     }
 
+    public ClienteId getClienteId() {
+        return clienteId;
+    }
 }

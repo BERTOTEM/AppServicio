@@ -20,4 +20,6 @@ public class ActualizarCliente extends Command {
     public InformacionCliente getInformacionCliente() {
         return informacionCliente;
     }
+
+
 }

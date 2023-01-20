@@ -20,7 +20,7 @@ public class InformacionSede implements ValueObject<InformacionSede.InfoS> {
     }
 
     @Override
-    public InfoS value(){
+    public InformacionSede.InfoS value(){
         return new InfoS() {
             @Override
             public String nombre() {return nombre;}

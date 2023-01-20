@@ -19,12 +19,12 @@ public class Observaciones implements ValueObject<Observaciones.Info> {
         return new Observaciones(observacion, fecha);
     }
 
-    public Info value() {
+    public Observaciones.Info value() {
 
         return new Info() {
 
             @Override
-            public String oservacion() {
+            public String observacion() {
                 return observacion;
             }
 
@@ -36,7 +36,7 @@ public class Observaciones implements ValueObject<Observaciones.Info> {
     }
 
     public interface Info {
-        String oservacion();
+        String observacion();
 
         LocalDate fecha();
     }
