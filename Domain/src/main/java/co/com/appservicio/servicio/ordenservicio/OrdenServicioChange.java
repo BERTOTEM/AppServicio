@@ -11,13 +11,13 @@ import co.com.sofka.domain.generic.EventChange;
 
 public class OrdenServicioChange extends EventChange {
     public OrdenServicioChange(OrdenServicio ordenServicio) {
+        apply((OrdenServicioCreada event) -> {
+            ordenServicio.objetivo = event.getObjetivo();
+        });
         apply((EstadoAgregado event) -> {
             ordenServicio.estado = new Estado(event.getEstadoID(), event.getFecha(), event.getPendiente());
         });
         apply((OrdenActualizada event) -> {
-            ordenServicio.ActualizarOrdenDeServicio(event.getOrdenSevicioID(), event.getObjetivo());
-        });
-        apply((OrdenServicioCreada event) -> {
             ordenServicio.objetivo = event.getObjetivo();
         });
         apply((RepuestoAgregado event) -> {
