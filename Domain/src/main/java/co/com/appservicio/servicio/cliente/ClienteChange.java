@@ -9,11 +9,15 @@ import co.com.appservicio.servicio.cliente.events.ContactoAgregado;
 import co.com.appservicio.servicio.cliente.events.EncuestaAgregada;
 import co.com.sofka.domain.generic.EventChange;
 
+import java.util.HashSet;
+
 public class ClienteChange  extends EventChange {
 
     public ClienteChange(Cliente cliente) {
        apply((ClienteCreado event)->{
            cliente.informacioncliente=event.getInformacioncliente();
+           cliente.contactos = new HashSet<>();
+
        });
        apply((ContactoAgregado event)->{
            cliente.contactos.add(new Contacto(event.getContactoId(),event.getInformacionContacto()));
