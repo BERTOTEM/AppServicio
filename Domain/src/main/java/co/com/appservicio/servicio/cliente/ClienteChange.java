@@ -19,10 +19,7 @@ public class ClienteChange  extends EventChange {
        apply((ClienteCreado event)->{
            cliente.informacioncliente=event.getInformacioncliente();
            cliente.contactos = new HashSet<>();
-           cliente.encuestas = new Encuesta(new EncuestaId(),
-                   new Observaciones(cliente.encuestas.getObservaciones().value().observacion(),
-                           cliente.encuestas.getObservaciones().value().fecha()),
-                           new Calificacion(cliente.encuestas.getCalificacion().value()));
+           cliente.encuestas = cliente.getEncuestas();
 
        });
        apply((ContactoAgregado event)->{

@@ -37,7 +37,8 @@ public class Cliente extends AggregateEvent<ClienteId> {
         return cliente;
     }
 
-    public void AgregarEncuesta(EncuestaId encuestaId, Observaciones observaciones, Calificacion calificacion) {
+    public void AgregarEncuesta(Observaciones observaciones, Calificacion calificacion) {
+        var encuestaId = new EncuestaId();
         Objects.requireNonNull(encuestaId);
         Objects.requireNonNull(observaciones);
         Objects.requireNonNull(calificacion);
