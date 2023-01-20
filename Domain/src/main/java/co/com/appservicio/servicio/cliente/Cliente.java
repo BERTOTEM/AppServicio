@@ -44,7 +44,8 @@ public class Cliente extends AggregateEvent<ClienteId> {
         appendChange(new EncuestaAgregada(encuestaId, observaciones, calificacion)).apply();
     }
 
-    public void AgregarContacto(ContactoId contactoId, InformacionContacto informacioncontacto) {
+    public void AgregarContacto( InformacionContacto informacioncontacto) {
+        var contactoId = new ContactoId();
         Objects.requireNonNull(contactoId);
         Objects.requireNonNull(informacioncontacto);
         appendChange(new ContactoAgregado(contactoId, informacioncontacto)).apply();
@@ -71,4 +72,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
                 .findFirst();
     }
 
+    public ClienteId getClienteId() {
+        return clienteId;
+    }
 }

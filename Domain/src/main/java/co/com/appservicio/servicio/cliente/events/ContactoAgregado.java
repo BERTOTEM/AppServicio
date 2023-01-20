@@ -5,7 +5,6 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 public class ContactoAgregado extends DomainEvent {
 
-
     private final ContactoId contactoId;
     private final InformacionContacto informacioncontacto;
 
