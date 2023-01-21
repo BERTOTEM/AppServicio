@@ -16,6 +16,7 @@ public class OrdenServicioChange extends EventChange {
         apply((OrdenServicioCreada event) -> {
             ordenServicio.objetivo = event.getObjetivo();
             ordenServicio.repuestos= new HashSet<>();
+            ordenServicio.estado= ordenServicio.getEstado();
 
         });
         apply((EstadoAgregado event) -> {
