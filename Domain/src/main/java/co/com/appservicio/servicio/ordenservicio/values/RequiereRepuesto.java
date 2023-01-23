@@ -16,8 +16,8 @@ public  class RequiereRepuesto implements ValueObject<RequiereRepuesto.info> {
         this.cantidad = cantidad;
     }
 
-    public static Descripcion of(Boolean value,String descripcion, String cantidad){
-        return new Descripcion(descripcion, cantidad);
+    public static RequiereRepuesto of(Boolean value,String descripcion, String cantidad){
+        return new RequiereRepuesto(value,descripcion, cantidad);
     }
 
     public RequiereRepuesto.info value() {
