@@ -10,6 +10,14 @@ import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;
 
+/**
+ * Domain events de agregado root SoporteTecnico
+ *
+ * @author Keivys José Rodríguez - keivys17@gmail.com
+ * @author Julian Roberto Mazo Arroyave - jrtma34@gmail.com
+ * @version 1.00.000 2023-01-23
+ * @since 1
+ */
 public class SoporteTecnicoChange extends EventChange {
     public SoporteTecnicoChange(SoporteTecnico soporteTecnico){
         apply((SoporteTecnicoCreado event)->{
