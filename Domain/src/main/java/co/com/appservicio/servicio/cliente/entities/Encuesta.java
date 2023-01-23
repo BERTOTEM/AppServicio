@@ -6,7 +6,7 @@ import co.com.appservicio.servicio.cliente.values.Observaciones;
 import co.com.sofka.domain.generic.Entity;
 
 /**
- * Esta clase es para la creacion de la entidad encuesta
+ * Esta clase es para la creación de la entidad encuesta
  *
  * @author Keivys José Rodríguez - keivys17@gmail.com
  * @author Julian Roberto Mazo Arroyave - jrtma34@gmail.com

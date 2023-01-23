@@ -5,7 +5,7 @@ import co.com.appservicio.servicio.cliente.values.InformacionContacto;
 import co.com.sofka.domain.generic.Entity;
 
 /**
- * Esta clase es para la creacion de la entidad contacto
+ * Esta clase es para la creación de la entidad contacto
  *
  * @author Keivys José Rodríguez - keivys17@gmail.com
  * @author Julian Roberto Mazo Arroyave - jrtma34@gmail.com

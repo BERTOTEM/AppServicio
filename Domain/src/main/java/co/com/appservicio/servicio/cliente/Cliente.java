@@ -17,8 +17,8 @@ import java.util.Set;
 
 /**
  * Agregado Root Cliente extiende de AggregateEvent
- * Esta clase es para la creacion del del agregado root cliente,
- * creación,Domain events ,gestión de Commands y Events.
+ * Esta clase es para la creación del agregado root cliente,
+ * creación, Domain events, gestión de Commands y Events.
  *
  * @author Keivys José Rodríguez - keivys17@gmail.com
  * @author Julian Roberto Mazo Arroyave - jrtma34@gmail.com
@@ -82,7 +82,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
     }
 
     /**
-     * Evento para agragar un Contacto
+     * Evento para agregar un Contacto
      *
      * @param informacioncontacto Información del contacto
      */
@@ -94,7 +94,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
     }
 
     /**
-     * Evento para alcualizar la información de un cliente
+     * Evento para actualizar la información de un cliente
      *
      * @param clienteId          Id del cliente
      * @param informacionCliente Información del cliente
@@ -124,7 +124,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
     }
 
     /**
-     * Método para obtener un contacto de un cliente del arreglo
+     * Método para obtener un contacto de un cliente, del arreglo
      *
      * @param contactoId Id del contacto
      * @return Un contacto

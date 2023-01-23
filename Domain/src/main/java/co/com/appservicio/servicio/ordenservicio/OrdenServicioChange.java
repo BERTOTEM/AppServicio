@@ -11,12 +11,20 @@ import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;
 
+/**
+ * Domain events de agregado root OrdenServicio
+ *
+ * @author Keivys José Rodríguez - keivys17@gmail.com
+ * @author Julian Roberto Mazo Arroyave - jrtma34@gmail.com
+ * @version 1.00.000 2023-01-23
+ * @since 1
+ */
 public class OrdenServicioChange extends EventChange {
     public OrdenServicioChange(OrdenServicio ordenServicio) {
         apply((OrdenServicioCreada event) -> {
             ordenServicio.objetivo = event.getObjetivo();
-            ordenServicio.repuestos= new HashSet<>();
-            ordenServicio.estado= ordenServicio.getEstado();
+            ordenServicio.repuestos = new HashSet<>();
+            ordenServicio.estado = ordenServicio.getEstado();
 
         });
         apply((EstadoAgregado event) -> {
